@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.factories">
+    package="com.jbetts.factories">
    <application
         android:label="factories"
         android:icon="@mipmap/ic_launcher">

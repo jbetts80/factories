@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "388729130103",
+    "project_id": "factories-c0ec5",
+    "storage_bucket": "factories-c0ec5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:388729130103:android:52feb06ab704c05b738a72",
+        "android_client_info": {
+          "package_name": "com.jbetts.factories"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "388729130103-r1hafain7jpgu2hslv7ociap64ovnpse.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnilOP8bJ7osq9II-w-SGBPDkl6nBMwv0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "388729130103-r1hafain7jpgu2hslv7ociap64ovnpse.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

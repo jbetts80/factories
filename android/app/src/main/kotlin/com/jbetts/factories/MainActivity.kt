@@ -1,4 +1,4 @@
-package com.example.factories
+package com.jbetts.factories
 
 import io.flutter.embedding.android.FlutterActivity
 
