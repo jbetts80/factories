@@ -13,7 +13,6 @@ class FactoryDetail extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
-            // height: 50.0,
             width: double.infinity,
             child: FadeInImage.assetNetwork(
               fit: BoxFit.cover,

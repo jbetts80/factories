@@ -43,101 +43,108 @@ class Login extends StatelessWidget {
               fit: BoxFit.fitHeight,
             ),
           ),
-          SingleChildScrollView(
-            child: Column(
-              children: [
-                ClipOval(
-                  child: Image.asset(
-                    'assets/images/user_placeholder.png',
-                    height: 80.0,
+          Align(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  ClipOval(
+                    child: Image.asset(
+                      'assets/images/user_placeholder.png',
+                      height: 80.0,
+                    ),
                   ),
-                ),
-                const SizedBox(height: 20.0),
-                Text(
-                  'Welcome to factories!',
-                  style: TextStyle(
-                    fontSize: 12.0,
-                    fontWeight: FontWeight.bold,
+                  const SizedBox(height: 20.0),
+                  Text(
+                    'Welcome to factories!',
+                    style: TextStyle(
+                      fontSize: 12.0,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-                const SizedBox(height: 20.0),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Username',
-                        style: TextStyle(
-                          fontSize: 12.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      TextField(
-                        controller: bloc.userTextEditController,
-                        decoration: InputDecoration(
-                          prefixIcon: Icon(
-                            Icons.person,
-                            color: Colors.grey,
-                          ),
-                          hintText: 'Username',
-                        ),
-                      ),
-                      const SizedBox(height: 20.0),
-                      Text(
-                        'Password',
-                        style: TextStyle(
-                          fontSize: 12.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      TextField(
-                        controller: bloc.passTextEditController,
-                        decoration: InputDecoration(
-                          hintText: 'Password',
-                          prefixIcon: Icon(
-                            Icons.vpn_key,
-                            color: Colors.grey,
+                  const SizedBox(height: 40.0),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Username',
+                          style: TextStyle(
+                            fontSize: 12.0,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
-                      ),
-                      const SizedBox(height: 10.0),
-                      Stack(
-                        children: [
-                          Container(
-                            height: 20.0,
+                        TextField(
+                          controller: bloc.userTextEditController,
+                          decoration: InputDecoration(
+                            prefixIcon: Icon(
+                              Icons.person,
+                              color: Colors.grey,
+                            ),
+                            hintText: 'Username',
                           ),
-                          Consumer<LoginBLoC>(
-                            builder: (_, blocListener, __) =>
-                                AnimatedPositioned(
-                              bottom:
-                                  blocListener.showErrorMessage ? 0.0 : 20.0,
-                              child: Text('Credentials doesn\'t match!'),
-                              duration: Duration(milliseconds: 300),
+                        ),
+                        const SizedBox(height: 40.0),
+                        Text(
+                          'Password',
+                          style: TextStyle(
+                            fontSize: 12.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        TextField(
+                          controller: bloc.passTextEditController,
+                          decoration: InputDecoration(
+                            hintText: 'Password',
+                            prefixIcon: Icon(
+                              Icons.vpn_key,
+                              color: Colors.grey,
                             ),
                           ),
-                        ],
-                      ),
-                      Consumer<LoginBLoC>(
-                        builder: (_, blocListener, __) => blocListener.isLoading
-                            ? Center(child: CircularProgressIndicator())
-                            : Text(''),
-                      ),
-                      const SizedBox(height: 20.0),
-                      Align(
-                        child: Consumer<LoginBLoC>(
-                          builder: (_, blocListener, __) => ElevatedButton(
-                            onPressed: blocListener.isLoading
-                                ? null
-                                : () => _login(context),
-                            child: Text('Login'),
+                        ),
+                        const SizedBox(height: 10.0),
+                        Consumer<LoginBLoC>(
+                          builder: (_, blocListener, __) => Column(
+                            children: [
+                              Stack(
+                                children: [
+                                  Container(
+                                    height: 20.0,
+                                  ),
+                                  AnimatedPositioned(
+                                    bottom: blocListener.showErrorMessage
+                                        ? 0.0
+                                        : 20.0,
+                                    child: Text(
+                                      'Username or password don\'t match!',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    duration: const Duration(milliseconds: 300),
+                                  ),
+                                ],
+                              ),
+                              if (blocListener.isLoading)
+                                Center(child: CircularProgressIndicator()),
+                              const SizedBox(height: 20.0),
+                              Align(
+                                child: ElevatedButton(
+                                  onPressed: blocListener.isLoading
+                                      ? null
+                                      : () => _login(context),
+                                  child: Text('Login'),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ],

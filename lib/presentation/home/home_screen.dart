@@ -118,9 +118,7 @@ class Home extends StatelessWidget {
     final factoryBloc = Provider.of<HomeBLoC>(context);
     print('factoryBloc.factories: ${factoryBloc.factories}');
     return Scaffold(
-      body: factoryBloc.factories.isEmpty
-          ? Center(child: Text('There are no factories available'))
-          : FactoriesList(factoryBloc.factories),
+      body: FactoriesList(factoryBloc.factories),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () => _showBottomSheet(context),
