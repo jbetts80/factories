@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:factories/presentation/details/factory_detail.dart';
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
@@ -132,6 +133,13 @@ class FactoriesList extends StatelessWidget {
   const FactoriesList(this.factories);
   final List<Factory> factories;
 
+  void _showDetails(BuildContext context, Factory factory) {
+    Navigator.of(context).pushNamed(
+      FactoryDetail.routeName,
+      arguments: factory,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
@@ -146,6 +154,7 @@ class FactoriesList extends StatelessWidget {
           leading: FactoryImage(image: factory.image),
           title: Text(factory.name),
           subtitle: Text(factory.address),
+          onTap: () => _showDetails(context, factory),
         );
       },
     );

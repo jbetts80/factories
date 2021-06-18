@@ -1,3 +1,4 @@
+import 'package:factories/presentation/details/factory_detail.dart';
 import 'package:flutter/material.dart';
 
 import 'package:firebase_core/firebase_core.dart';
@@ -27,6 +28,9 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         home: LoginScreen(),
+        routes: {
+          FactoryDetail.routeName: (_) => FactoryDetail(),
+        },
       ),
     );
   }
